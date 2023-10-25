@@ -1,0 +1,141 @@
+\documentclass[a4paper, twoside, 12pt]{book}
+\usepackage[T1]{fontenc} 
+\usepackage[utf8]{inputenc}   
+\usepackage[english]{babel} 
+%\usepackage[a4paper, hmarginratio=3:2]{geometry} 
+\usepackage[a4paper, inner=3.5cm, textwidth=15cm, top=2.5cm, textheight=24cm]{geometry} 
+\usepackage{pdfpages} % pokud nemáte formulář "Zadání bak./dipl. práce" naskenovaný jako PDF, tak ZAKOMENTUJTE
+\usepackage[hidelinks]{hyperref} % v PDF budou klikací odkazy ("hidelinks" je nebude rámovat)
+%inner=3.5cm,  
+%\usepackage[ a4paper, textwidth=15cm, top=2.5cm, textheight=24cm, top=10mm, bottom=10mm, left=10mm, right=10mm]{geometry}
+\usepackage{graphicx} 
+\usepackage{epsfig} 
+\usepackage{float} 
+\usepackage{caption} 
+\usepackage{tabularx} 
+\usepackage{listings}  
+\usepackage{amsmath}
+\usepackage{cite}
+\usepackage{url}
+\usepackage[nameinlink,capitalize]{cleveref}
+\usepackage{placeins}
+\usepackage{amsfonts}
+% Shows line numbers
+\usepackage{lineno}
+%\linenumbers
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+    texcl=<true|false>
+    mathescape=<true|false>
+}
+
+
+
+%\frenchspacing % za~větou bude mezislovní mezera (v anglických textech je mezera za~větou delší)
+\widowpenalty=10000 % "síla" zákazu vdov (= jeden řádek ze~začátku odstavce na~konci stránky)
+\clubpenalty=10000 % "síla" zákazu sirotků (= jeden řádek/slovo z konce odstavce samostatně na~začátku stránky)
+\brokenpenalty=10000 % "síla" zákazu zlomu stránky za~řádkem, který má na~konci rozdělené slovo
+
+\usepackage{parskip}
+%\usepackage{indentfirst}
+\pagenumbering{arabic} % číslování stránek arabskými číslicemi
+\pagestyle{plain}      % stránky číslované do~le uprostřed
+
+\newcommand{\ti}{\textit} % zkrácený příkaz pro kurzívu
+\newcommand{\tb}{\textbf} % zkrácený příkaz pro tučné písmo
+
+\newcommand{\Pom}{I$\!$P} 
+\newcommand{\DPE}{DI$\!$PE} 
+
+
+\begin{document}
+
+\renewcommand{\tablename}{Tab.}
+\renewcommand{\figurename}{Fig.}
+\renewcommand{\figurename}{Fig.}
+\frontmatter
+%%%%%%%%%%%% TITULNÍ STRANA EN  %%%%%%%%%%%%
+\include{header}  % Title page and etc.
+
+%%%%%%%%%%%% Obsah práce ... je generován AUTOMATICKY %%%%%%%%%%%%
+\newpage
+\thispagestyle{empty} 
+\parskip=0pt
+\tableofcontents 
+\parskip=7pt
+\newpage
+\thispagestyle{empty} 
+\listoffigures
+\newpage
+\thispagestyle{empty} 
+\listoftables
+\newpage
+\thispagestyle{empty} 
+
+\parindent= 10mm
+\mainmatter
+
+ 
+
+%\addcontentsline{toc}{chapter}{Introduction} % Introduction
+\include{introduction}
+\newpage
+\include{theoretics} % Theoretical introduction
+\newpage
+\include{detector}  % STAR & RHIC
+\newpage
+\include{analysis} % Data Analysis
+\newpage
+\include{results}
+\newpage
+\include{summary} % Summary
+
+
+%In particle physics, the Pomeron is a hypothetical exchange particle that is thought to play a role in the strong force interactions between hadrons, such as protons and neutrons. The Pomeron is characterized by its quantum numbers, such as spin and parity, and its exchange is described by a trajectory in the complex angular momentum plane, known as the Pomeron trajectory. The concept of Pomeron exchange was first introduced in the 1960s to explain the high-energy behavior of hadron-hadron scattering, and it continues to be an active area of research today.
+
+
+%%%%%%%%%%%% SEZNAM POUŽITÝCH ZDROJŮ (LITERATURA) %%%%%%%%%%%%
+\clearpage 
+%\chapter*{Bibliography}
+\bibliography{bibliography}{}
+%\bibliographystyle{aip}
+\bibliographystyle{IEEEtran}
+\addcontentsline{toc}{chapter}{Bibliography} 
+    
+%\bibliographystyle{abbrv}
+
+%%%%%%%%%%%% PŘÍLOHY PRÁCE %%%%%%%%%%%%
+\newpage 
+
+\appendix 
+\cleardoublepage\makeatletter\@openrightfalse\makeatother
+\newpage
+\include{appendixA}
+\newpage
+\include{appendixB}
+%\chapter{Variable distributions for two hadrons events}
+%\label{rapAndPhi}
+
+\end{document} 
